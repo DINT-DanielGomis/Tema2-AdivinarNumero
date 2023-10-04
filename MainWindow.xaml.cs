@@ -20,9 +20,50 @@ namespace Tema2_AdivinarNumero
     /// </summary>
     public partial class MainWindow : Window
     {
+        private int targetNumber;
         public MainWindow()
         {
             InitializeComponent();
+            ResetGame();
+        }
+        private void ResetGame()
+        {
+            
+            Random random = new Random();
+            targetNumber = random.Next(101);
+            guessTextBox.Text = string.Empty;
+        }
+
+        private void CheckButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                
+                int userGuess = int.Parse(guessTextBox.Text);
+
+                if (userGuess == targetNumber)
+                {
+                    MessageBox.Show("¡Has acertado!", "¡Felicidades!", MessageBoxButton.OK, MessageBoxImage.Information);
+                    ResetGame();
+                }
+                else if (userGuess < targetNumber)
+                {
+                    MessageBox.Show("Te has quedado corto. ¡Inténtalo de nuevo!", "Número Incorrecto", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                }
+                else
+                {
+                    MessageBox.Show("Te has pasado. ¡Inténtalo de nuevo!", "Número Incorrecto", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                }
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Por favor, ingresa un número válido.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void ResetButton_Click(object sender, RoutedEventArgs e)
+        {
+            ResetGame();
         }
     }
 }
