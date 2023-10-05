@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Tema2_AdivinarNumero"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="AdivinarNumero" Height="450" Width="800">
     <!-- es un comentario. -->
     <Grid>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
